@@ -1,5 +1,6 @@
 import ListComponent from "../ListComponent/ListComponent";
 import Welcome from "../Welcome/Welcome"
+import styles from './Main.module.scss';
 
 const Main = () => {
 
@@ -7,7 +8,7 @@ const Main = () => {
 
     const movies = ["Star Wars", "Lord of the Rings", "Harry Potter", "The Matrix", "Inception"];
 
-    const names = ["Gunnar", "Marlene", "Jannick", "HC", "Heinz"];
+    const names = ["John", "Jane", "Joe", "Jill", "Jack"]
 
     const randomIndex = Math.floor(Math.random() * names.length);
 
@@ -18,8 +19,10 @@ const Main = () => {
     return(
         <>
         <Welcome name={randomName} />
-        <ListComponent items={dishes} />
-        <ListComponent items={movies} />
+        <div className={styles.grid}>
+            <ListComponent items={dishes} heading="Random Dishes" />
+            <ListComponent items={movies} heading="Random Movies"/>
+        </div>
         </>
     )
 }
